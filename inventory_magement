@@ -2,3 +2,25 @@ sudo cp -pr hosts hosts.original
 [test@ip-172-31-34-51 ansible]$ 
 
  ansible all --list-hosts
+
+ sudo vi hosts
+ ansible all --list-hosts
+
+ [test@ip-172-31-34-51 ~]$ vi hosts
+ ansible apacheweb -m ping
+
+ sudo systemctl stop sshd
+ ansible myhosts -i hosts -m ping
+ ansible all -m ping
+
+ ssh-copy-id localhost
+
+ Adhoc
+ ansible local -m setup|grep -i ansible
+ ansible all -s -m shell -a 'uptime'
+ ansible all -m shell -a 'uptime'
+ ansible all -m shell -a 'date'
+ ansible all -m shell -a 'df -h'
+ ansible all -m shell -a 'mount'
+ ansible all -m shell -a 'service sshd status'
+ ansible all -m shell -a 'service httpd status'
