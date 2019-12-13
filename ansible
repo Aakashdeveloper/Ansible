@@ -57,3 +57,20 @@ ssh test@ip
 >> Now do things same thing for all nodes
 
 >> cat /etc/redhat-release 
+
+
+>>BackUp of file
+sudo cp ansible.cfg ansible.cfg.original
+
+//Overridding Ansible
+ [test@ip-172-31-34-51 ansible]$ set|grep -i ansible
+ export ANSIBLE_CONFIG=/home/test/config/myansible.cfg
+ set|grep -i ansible
+> cd ~
+sudo mkdir config
+> touch myansible.cfg
+
+cp -pr ansible.cfg  /home/test/config/myansible.cfg
+
+// remove Overridding Ansible
+ export ANSIBLE_CONFIG=/etc/ansible/ansible.cfg

@@ -1,0 +1,20 @@
+Master
+ssh -i "oct_aws_nv.pem" ec2-user@ec2-3-222-216-214.compute-1.amazonaws.com
+ssh test@ec2-3-222-216-214.compute-1.amazonaws.com
+172.31.34.51
+
+Node1
+ssh -i "oct_aws_nv.pem" ec2-user@ec2-3-234-42-154.compute-1.amazonaws.com
+ssh test@ec2-3-234-42-154.compute-1.amazonaws.com
+172.31.83.188
+
+Node2
+ssh -i "oct_aws_nv.pem" ec2-user@ec2-34-199-113-87.compute-1.amazonaws.com
+ssh test@ec2-34-199-113-87.compute-1.amazonaws.com
+172.31.88.168
+
+Node3
+ssh -i "oct_aws_nv.pem" ec2-user@ec2-52-1-106-13.compute-1.amazonaws.com
+ssh test@ec2-52-1-106-13.compute-1.amazonaws.com
+172.31.88.148
+

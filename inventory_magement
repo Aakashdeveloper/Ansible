@@ -1,0 +1,4 @@
+sudo cp -pr hosts hosts.original
+[test@ip-172-31-34-51 ansible]$ 
+
+ ansible all --list-hosts
