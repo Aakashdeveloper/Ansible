@@ -1,0 +1,9 @@
+ansible all -m ping
+
+secure ansible
+sudo vi ansible.cfg
+uncomment
+> ask_sudo_pass=true
+
+ansible all -s -m shell -a 'yum list installed|grep telnet'
+ansible all -s -m shell -a 'yum list installed|grep python'

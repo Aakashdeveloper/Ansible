@@ -1,6 +1,7 @@
 sudo cp -pr hosts hosts.original
 [test@ip-172-31-34-51 ansible]$ 
 
+
  ansible all --list-hosts
 
  sudo vi hosts
@@ -24,3 +25,5 @@ sudo cp -pr hosts hosts.original
  ansible all -m shell -a 'mount'
  ansible all -m shell -a 'service sshd status'
  ansible all -m shell -a 'service httpd status'
+
+ Aakashb@050493
