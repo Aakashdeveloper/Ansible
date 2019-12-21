@@ -28,4 +28,8 @@ ansible all -s -m shell -a 'yum list installed|grep vim'
 >mkdir -p Playbook
 >cd Playbook
 >vim myfirstplaybook.yml
+> ansible-playbook myfirstplaybook.yml --check
+>To execute
+> ansible-playbook -s myfirstplaybook.yml
+
 
