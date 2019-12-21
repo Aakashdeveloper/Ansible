@@ -4,6 +4,28 @@ secure ansible
 sudo vi ansible.cfg
 uncomment
 > ask_sudo_pass=true
+> ansible all -m ping
 
 ansible all -s -m shell -a 'yum list installed|grep telnet'
 ansible all -s -m shell -a 'yum list installed|grep python'
+ansible apacheweb -s -m shell -a 'yum list installed|grep python'
+
+ansible local -m setup|more
+//For all
+ansible all -m setup|more
+cd /tmp
+ansible  all -m setup --tree /tmp/system_facts.txt
+////////////////////
+install vim in all machine
+anisble all -s -m yum -a 'pkg=vim state=installed update_cache=true'
+>>Check vim installed<<<<
+ansible all -s -m shell -a 'yum list installed|grep vim'
+
+//////////////////////////////////////////////////
+//Go to home 
+> cd ~test
+>ls -l 
+>mkdir -p Playbook
+>cd Playbook
+>vim myfirstplaybook.yml
+
