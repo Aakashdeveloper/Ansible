@@ -31,5 +31,21 @@ ansible all -s -m shell -a 'yum list installed|grep vim'
 > ansible-playbook myfirstplaybook.yml --check
 >To execute
 > ansible-playbook -s myfirstplaybook.yml
+> Check on server
+> ansible all -s -m shell -a 'yum list installed|grep -i tomcat'
+> Change in playbook to "all"
+> Create external vars
+> cd playbook
+> touch vars.yml
+
+//////Run Target Ansible/////
+> ansible-playbook myfirstplaybook_target.yml
+
+//////Remove Tomcat from one server/////
+sudo yum remove tomcat
+sudo yum clean all
+
+**If sudo commented
+>ansible-playbook -s myfirstplaybook_target.yml
 
 

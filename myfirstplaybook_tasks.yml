@@ -1,0 +1,19 @@
+--- #My First playbook
+- hosts : apacheweb
+  user: test
+  sudo: yes
+  connection: ssh
+  gather_fact: no
+  vars:
+    control_server: 172.31.2.156
+    web_rooot: /var/www/html
+    updatemyfile: 455
+  vars_prompt:
+    - name: PROMPT
+      prompt:  Do you want to run the below tasks?
+      
+  tasks : 
+    - name: Install the logwatch server
+      yum: pkg=logwatch state=installed update_cache=true
+    - name: Install the htop package
+      yum: pkg=htop state=installed update_cache=true

@@ -1,0 +1,11 @@
+--- #My First playbook
+- hosts : apacheweb
+  vars:
+    control_server: 172.31.2.156
+    web_rooot: /var/www/html
+    updatemyfile: 455
+  tasks : 
+    - name: Install the tomcat server
+      yum: pkg=tomcat state=installed update_cache=true
+- vars_files:
+    #vars.yml
