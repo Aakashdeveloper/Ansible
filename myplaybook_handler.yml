@@ -1,0 +1,20 @@
+--- #My First playbook
+- hosts : apacheweb
+  user: test
+  sudo: yes
+  connection: ssh
+  gather_fact: yes
+  vars_prompt:
+    - name: PROMPT
+      prompt:  Install  apcaheweb server and restart?
+      
+  tasks : 
+    - name: Install the apacheweb server
+      #yum: pkg=httpd* state=installed update_cache=true
+      action: yum name=httpd state=installed
+      notify: Restarthttpd
+  handlers:
+    - name: Restarthttpd
+      #action: service name=httpd state=started
+      action: service name=httpd state=stop
+

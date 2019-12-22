@@ -1,0 +1,10 @@
+I need the following things to be done in the end machines/clients
+-webserver or hosts
+- user
+- sudo right privilges
+- date/time stamp start
+- Installation of that tomcat services
+- start of the tomcat server
+- Installation of client software like logwatch and htop
+- Log all package into a destination/sourcee system
+- date/time stamp ends

@@ -49,3 +49,20 @@ sudo yum clean all
 >ansible-playbook -s myfirstplaybook_target.yml
 
 
+//////Run Tasks Ansible/////
+>ansible-playbook -s myfirstplaybook_tasks.yml
+**check htop and logwatch installed or not
+** to remove packge in .yml make status=absent
+ yum: pkg=logwatch state=absent update_cache=true
+
+ //////Run Handler Ansible/////
+>ansible-playbook -s myfirstplaybook_handlers.yml
+> ps aux|grep -i httpd
+> ps -ef|grep -i httpd
+
+ //////PlayBook Outline/////
+ >cd playbook
+ > touch outline.txt
+ > cp -pr outline.txt myplaybook_outline.yml
+ > vim myplaybook_outline.yml
+
