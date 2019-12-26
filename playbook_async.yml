@@ -1,0 +1,35 @@
+--- #My First playbook
+- hosts : all
+  remote_user: test
+
+  tasks : 
+    - name: simulate long running op (20 sec) wait for up to 45 sed, poll every 5 sec
+      command: /bin/sleep 15
+      async: 45
+      poll: 5
+
+
+
+
+///////////////
+--- #My First playbook
+- hosts : apacheweb
+  user: test
+  sudo: yes
+  connection: ssh
+  gather_fact: yes
+  vars:
+    control_server: 172.31.2.156
+    web_rooot: /var/www/html
+    updatemyfile: 455
+  vars_prompt:
+    - name: PROMPT
+      prompt: Check dryyrun?
+      
+  tasks : 
+    - name: Install the logwatch
+      yum: pkg=logwatch state=installed update_cache=true
+      async: 300
+      poll: 3
+    - name: Install the htop package
+      yum: pkg=htop state=installed update_cache=true

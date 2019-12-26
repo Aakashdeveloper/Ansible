@@ -66,3 +66,8 @@ sudo yum clean all
  > cp -pr outline.txt myplaybook_outline.yml
  > vim myplaybook_outline.yml
 
+///DryRun///
+>ansible-playbook -s playbook_dryrun.yml --check
+
+ansible-playbook -s playbook_dryrun.yml -v 
+ansible-playbook -s playbook_dryrun.yml -vv
