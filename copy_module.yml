@@ -1,0 +1,12 @@
+--- #Wait for
+- hosts : apacheweb
+  user: test
+  become: true
+  gather_fact: no
+  tasks:
+  - name: Copy file
+    action: copy
+      src=/home/test/text1.text1
+      dest=/home/test/etc
+      owner=test group=test mode=0655
+  

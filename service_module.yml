@@ -1,0 +1,12 @@
+--- #Wait for
+- hosts : apacheweb
+  user: test
+  become: true
+  gather_fact: no
+  connection: ssh
+  tasks:
+  - name: Install thttpd
+    action: yum name=httpd state=installed
+  - name: Start the web service
+    service: name=httpd state=started
+

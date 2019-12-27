@@ -1,0 +1,14 @@
+--- #Wait for
+- hosts : all
+  user: test
+  become: true
+  gather_fact: no
+  tasks:
+  - name: Install httpd
+    action: yum name=httpd state=installed
+  - name:  Waiting for port 80 to open
+    wait_for:
+        port: 80
+        state: started
+  - name: Check the ftp
+    action: yum name=ftp state=installed

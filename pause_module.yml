@@ -1,0 +1,15 @@
+--- #Pause Module
+- hosts : all
+  user: test
+  become: true
+  gather_fact: no
+  tasks:
+  - name: Install httpd
+    action: yum name=httpd state=installed
+  - name:  PAUSING *********
+    pause:
+        prompt: "Test installation success"
+  - name: Check telnet installation
+    action: yum name=telnet state=present
+
+   

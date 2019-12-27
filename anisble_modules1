@@ -47,4 +47,12 @@ ansible all -s -m copy -a 'src=/etc/fstab dest=/home/test' --check
 
 ansible all -s -m command -a 'rm -rf /home/test/fstab removes=/home/test/fstab'
 
+>>>>Open Port in each server (wait_for)
+sudo systemctl start httpd 
+sudo systemctl stop httpd 
 
+>pause
+>wait_for
+>yum
+>service(sudo systemctl status httpd )
+>copy

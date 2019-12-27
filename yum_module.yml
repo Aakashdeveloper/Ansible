@@ -1,0 +1,10 @@
+--- #Wait for
+- hosts : apacheweb
+  user: test
+  become: true
+  gather_fact: no
+  tasks:
+  - name: Install httpd
+    action: yum name=httpd state=installed
+  - name: Check the ftp
+    action: yum name=ftp state=installed
