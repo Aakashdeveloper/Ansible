@@ -26,4 +26,25 @@ ansible all -m setup -a "filter=ansible_memtotal_mb"
 ansible all -m setup -a "filter=ansible_proc"
 ansible all -m setup -a "filter=ansible_proc*"
 ansible all -m setup -a "filter=ansible_virt*"
->>
+ansible all -m setup -a "filter=ansible_*ip**"
+ansible all -m setup -a "filter=ansible_default_ipv4"
+
+
+>>>>>>File Module<<<<<<<<
+ansible all -s -m file -a 'path=/etc/fstab'
+ansible all -s -m file -a 'path=/etc/shadow'
+ansible all -s -m file -a 'path=/home/test'
+ansible all -s -m file -a 'path=/tmp/etc state=directory mode=0700 owner=root'
+
+cd /tmp
+tmp> ls -ld etc
+
+ansible all -s -m file -a 'path=/tmp/etc state=directory mode=0644 owner=root'
+
+ansible all -s -m file -a 'path=/tmp/etc/fstab state=file mode=0644 owner=test'
+ansible all -s -m copy -a 'src=/etc/fstab dest=/tmp/etc/fstab' --check
+ansible all -s -m copy -a 'src=/etc/fstab dest=/home/test' --check
+
+ansible all -s -m command -a 'rm -rf /home/test/fstab removes=/home/test/fstab'
+
+
