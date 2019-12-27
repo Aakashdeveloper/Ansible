@@ -9,8 +9,21 @@ I need the following things to be done in the end machines/clients
 - Log all package into a destination/sourcee system
 - date/time stamp ends
 
-- hosts: appserver
+- hosts: apacheweb
   user: test
-  sudo: yes
+  become: true
   gather_facts: no
   tasks:
+    - name: Record start date and time
+      raw: /bin/date > /home/test/playbookstart.log 
+    - name: Install the tomact services
+      yum: pkg=nodejs state=latest
+    - name: Start the tomcat services
+      service: name=httpd state=restart
+    - name: Installation of client software like logwatch and htop
+      yum: pkg=htop state=installed
+      yum: pkg:logwatch state=installed
+    - name: Log all packages
+      raw: yum list installed > /home/test/allpackges/log
+    - name: Record end date and time
+      raw: /bin/date > /home/test/playbookend.log

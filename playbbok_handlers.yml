@@ -1,0 +1,14 @@
+- hosts: apacheweb
+  user: test
+  become: true
+  vars_prompt:
+    - name: PROMPT
+      prompt: Install httpd server and restart?
+
+  tasks:
+    - name: Install the httpd server
+      action: yum name=httpd state=installed update_cache=true
+      notify: Restarthttpd
+  handlers:
+    - name: Restarthttpd
+      action: service name=httpd state=started enabled=true

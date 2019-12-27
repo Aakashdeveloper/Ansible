@@ -1,0 +1,29 @@
+> Launch one linux instance with same SG
+> In Linux instance
+    > vim /etc/ssh/sshdd_config
+    > /password
+    > Set PasswordAuthentication ==> yes
+    > service ssh restart
+
+> Add linux to the hosts file
+> [local]
+    localahost
+    [apacheweb]
+    172.31.83.188
+    [applicationserver]
+    172.31.88.168
+    [linux]
+    172.31.88.162
+
+>>>>>>>>>>>>>SetUp module<<<<<<
+//Charactersitcs of machine
+ansible all -m setup -a "filter=ansible_*"
+ansible all -m setup -a "filter=ansible_architecture"
+ansible all -m setup -a "filter=ansible_distribution"
+ansible all -m setup -a "filter=ansible_fqdn"
+ansible all -m setup -a "filter=ansible_interfaces"
+ansible all -m setup -a "filter=ansible_memtotal_mb"
+ansible all -m setup -a "filter=ansible_proc"
+ansible all -m setup -a "filter=ansible_proc*"
+ansible all -m setup -a "filter=ansible_virt*"
+>>

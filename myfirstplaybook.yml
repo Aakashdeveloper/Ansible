@@ -1,5 +1,7 @@
 --- #My First playbook
-- hosts : apacheweb
+- hosts : all
+  user : test
+  become: true
   tasks : 
     - name: Install the tomcat server
-      yum: pkg=tomcat state=installed update_cache=true
+      yum: pkg=tomcat state=installed 

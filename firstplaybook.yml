@@ -1,0 +1,14 @@
+--- #My first playbook
+- hosts: all
+  user: test
+  become: true
+  gather_fact: no
+  vars:
+    control_server: 172.31.20.243
+    web_root: /var/www/html
+    updatemyfile: 455
+  tasks:
+    - name: Install vim text editor server
+      yum: pkg=vim state=installed update_cache=true
+- vars_files:
+    #vars.yml
