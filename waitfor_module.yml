@@ -2,7 +2,7 @@
 - hosts : all
   user: test
   become: true
-  gather_fact: no
+  gather_facts: no
   tasks:
   - name: Install httpd
     action: yum name=httpd state=installed

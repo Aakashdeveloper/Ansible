@@ -1,4 +1,4 @@
---- #Wait for
+--- #Copy for
 - hosts : apacheweb
   user: test
   become: true
@@ -8,5 +8,7 @@
     action: copy
       src=/home/test/text1.text1
       dest=/home/test/etc
-      owner=test group=test mode=0655
+      owner=test
+      group=test 
+      mode=0655
   

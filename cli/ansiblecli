@@ -1,0 +1,54 @@
+ansible all --list-hosts
+
+// Install package
+ansible apacheweb -m yum -a "pkg=git state=latest"
+
+//uninstall
+ansible apacheweb -m yum -a "pkg=git state=absent"
+
+//service
+ansible apacheweb -u test -m service -a "name=httpd state=restarted"
+ansible apacheweb -u test -m service -a "name=httpd state=started"
+ansible apacheweb -u test -m service -a "name=httpd state=stop"
+
+//hosts
+ansible -u test -m command -a "ls -al /var"
+ansible -u test -m command -a "ls -al /home"
+ansible all -i hosts -u test -m command -a "ls -al /var"
+
+//shell
+ansible all -u test -m command  -a "ls -al"
+ansible all -u test -m shell  -a "ls -al"
+ansible all -u test -m raw  -a "ls -al"
+
+//
+ansible all - u test -a "ls /etc"
+ansible all - u test -a "ls /mytest"
+ansible all - u test -a "cat /etc/redhat-release"
+ansible all - u test -a "df -h"
+ansible all - u test -a "free -m"
+ansible all - u test -a "cat /proc/cpuinfo"
+
+
+// tree
+ansible apacheweb -u test -m yum -a "pkg=telnet state=latest" -t results
+> cd results
+>ls -l
+
+ansible apacheweb -u test -m yum -a "pkg=telnet state=latest" -t results.1 -v 
+cd results
+tree
+> tree results
+
+//manage user
+ansible apacheweb -u test -m user -a "name:ammy uid=250001 shall=/bin/bash"
+> cat /etc/passwd|grep -i ammy
+
+ansible apacheweb -u test -m user -a "name:ammy state=absent remove=yes"
+> cat /etc/passwd|grep -i ammy
+
+ansible apacheweb -u test -m cron -a "name='cronetest' minute='0' hour='12' job='ls -al/var > /home/test/cron.log'"
+
+> crontab -l 
+
+ansible apacheweb -u test -m cron -a "name='cronetest' state='absent'"
