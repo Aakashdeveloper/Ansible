@@ -1,0 +1,76 @@
+> Create 4 Ec2 with red hat
+
+> Add Secuirty Group as
+    >SSH
+    >ICMP
+    >Http
+    >Https
+
+> Attach elastic ips with all instance
+
+> Login into instance
+> useradd test
+> passwd test
+
+> cd /etc/SSH
+> vi sshd_config
+> /Password
+
+> systemctl restart sshd 
+> logout
+
+> ssh test@ec2IP
+
+try connect which child node it will throw the error
+
+>> Key Less authentication
+
+>> Provide root permission to test user(in all machines)
+>> login as ec2 user like "ssh -i "ansibleaws.pem" ec2-user@ec2-13-234-215-58.ap-south-1.compute.amazonaws.com"
+>> sudo su -
+>> vi /etc/sudoer
+>> at end of file type
+    test   ALL=(ALL)  NOPASSWD: ALL
+
+>> In Master node
+    >> Login as test user
+    >> try sudo su - (this will work now)
+    >> whoami
+
+>> Switch to test user in all accounts
+>> su - test
+>> form master try to login all node 
+   ssh test@172.31.38.140
+
+>> Generate key in all nodes
+>>who
+>> pwd
+>> ssh-keygen
+
+>> Form masteer node
+>> Copy Same key in all nodes
+>> ssh-copy-id <ip for othe node private ip>
+>> Now login into test server 
+ssh test@ip
+    >>Now it will not ask the Password
+>> Now all all node and copy key
+>> Now do things same thing for all nodes
+
+>> cat /etc/redhat-release 
+
+
+>>BackUp of file
+sudo cp ansible.cfg ansible.cfg.original
+
+//Overridding Ansible
+ [test@ip-172-31-34-51 ansible]$ set|grep -i ansible
+ export ANSIBLE_CONFIG=/home/test/config/myansible.cfg
+ set|grep -i ansible
+> cd ~
+sudo mkdir config
+> touch myansible.cfg
+
+cp -pr ansible.cfg  /home/test/config/myansible.cfg
+
+// remove Overridding Ansible
+ export ANSIBLE_CONFIG=/etc/ansible/ansible.cfg
