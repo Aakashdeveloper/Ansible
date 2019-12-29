@@ -28,6 +28,7 @@ ansible all - u test -a "cat /etc/redhat-release"
 ansible all - u test -a "df -h"
 ansible all - u test -a "free -m"
 ansible all - u test -a "cat /proc/cpuinfo"
+ansible apacheweb -m git -a "repo=https://github.com/Aakashdeveloper/Ansible.git dest=/home/test/myapp1"
 
 
 // tree
