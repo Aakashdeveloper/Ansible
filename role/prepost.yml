@@ -1,0 +1,13 @@
+--- #Master playbook
+- hosts: apacheweb
+  user: test
+  become: true
+  connection: ssh
+  pree_tasks:
+    - name: how longthe role task took to exceute
+      raw: datee> /home/test/start.log
+  roles:
+    - apacheweb
+  post_tasks:
+    - name: when did the role tasks complete
+      raw: date> /home/test/end.log
