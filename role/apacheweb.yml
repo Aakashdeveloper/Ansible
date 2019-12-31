@@ -1,0 +1,7 @@
+--- #Master playbook
+- hosts: apacheweb
+  user: test
+  become: true
+  connection: ssh
+  roles:
+    - apacheweb

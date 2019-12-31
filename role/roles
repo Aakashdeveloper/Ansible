@@ -1,0 +1,48 @@
+mmkdi Roles
+cd Roles
+mkdir Roles
+
+cd roles
+roles> mkdir apacheweb
+roles> mkdir appserver
+roles> cd apacheweb
+cd ~
+apacheweb> mkdir files
+apacheweb> mkdir templates
+apacheweb> mkdir handlers
+apacheweb> mkdir vars
+apacheweb> mkdir defaults
+apacheweb> mkdir meta
+apacheweb> mkdir tasks
+
+cd appserver
+appserver> mkdir files
+appserver> mkdir templates
+appserver> mkdir handlers
+appserver> mkdir vars
+appserver> mkdir defaults
+appserver> mkdir meta
+appserver> mkdir tasks
+
+ansible all -m ping
+
+cd Roles
+cd apacheweb
+> ll
+> cd tasks
+>main.yml
+
+cd handlers
+> cat main.yml
+
+cd vars
+> main.yml
+
+cd ..
+cd roles
+roles> apacheweb.yml
+
+ansible-playbook  apacheweb.yml
+
+///////////Pree Post tasks/////////
+
